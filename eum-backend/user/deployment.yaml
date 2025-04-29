@@ -76,6 +76,11 @@ spec:
                 configMapKeyRef:
                   name: user-config
                   key: google-uri
+            - name: REDIS_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: user-config
+                  key: redis-url
           resources:
             requests:
               memory: "256Mi"

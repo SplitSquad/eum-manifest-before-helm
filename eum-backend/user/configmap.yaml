@@ -11,4 +11,5 @@ data:
   db-url: jdbc:mysql://eum-db.eum-infra.svc.cluster.local:3306/user?useSSL=false&allowPublicKeyRetrieval=true
   eureka-ip: http://discovery.eum-backend.svc.cluster.local:8761/eureka
   kafka-url: kafka-broker-0.kafka-headless.eum-infra.svc.cluster.local:9092
-  google-uri: http://user.eum-backend.svc.cluster.local:8081/auth/login 
+  google-uri: http://user.eum-backend.svc.cluster.local:8081/auth/login
+  redis-url: redis.eum-infra.svc.cluster.local 
