@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: debate-config
+  namespace: eum-backend
+data:
+  db-url: jdbc:mysql://eum-back.cbuqoagm4dq9.ap-northeast-2.rds.amazonaws.com:3306/debate?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+  kafka-url: kafka.eum-infra.svc.cluster.local:9092
+  jwt-access-expiration: "36000000"
+  jwt-refresh-expiration: "36000000"
+  eureka-ip: http://eureka-server.eum-backend.svc.cluster.local:8761/eureka 

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: community-config
+  namespace: eum-backend
+data:
+  db-url: jdbc:mysql://eum-back.cbuqoagm4dq9.ap-northeast-2.rds.amazonaws.com:3306/community
+  kafka-url: kafka.eum-infra.svc.cluster.local:9092
+  jwt-access-expiration: "36000000"
+  jwt-refresh-expiration: "36000000"
+  s3-region: ap-northeast-2
+  s3-bucket-name: eum-msa-bucket
+  eureka-ip: http://eureka-server.eum-backend.svc.cluster.local:8761/eureka 

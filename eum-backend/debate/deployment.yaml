@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: debate
+  namespace: eum-backend
+  labels:
+    app: debate
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: debate
+  template:
+    metadata:
+      labels:
+        app: debate
+    spec:
+      containers:
+        - name: debate-container
+          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-debate:latest
+          ports:
+            - containerPort: 8083
+          env:
+            - name: DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: debate-config
+                  key: db-url
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: debate-secret
+                  key: db-username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: debate-secret
+                  key: db-password
+            - name: KAFKA_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: debate-config
+                  key: kafka-url
+            - name: TRANSLATION_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: debate-secret
+                  key: translation-key
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: debate-secret
+                  key: jwt-secret
+            - name: JWT_ACCESS_EXPIRATION
+              valueFrom:
+                configMapKeyRef:
+                  name: debate-config
+                  key: jwt-access-expiration
+            - name: JWT_REFRESH_EXPIRATION
+              valueFrom:
+                configMapKeyRef:
+                  name: debate-config
+                  key: jwt-refresh-expiration
+            - name: EUREKA_IP
+              valueFrom:
+                configMapKeyRef:
+                  name: debate-config
+                  key: eureka-ip
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m" 

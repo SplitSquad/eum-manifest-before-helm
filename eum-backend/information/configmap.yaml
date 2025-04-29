@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: information-config
+  namespace: eum-backend
+  labels:
+    app: information
+data:
+  db-url: jdbc:mysql://eum-db.eum-infra.svc.cluster.local:3306/information?useSSL=false&allowPublicKeyRetrieval=true
+  kafka-url: kafka-broker-0.kafka-headless.eum-infra.svc.cluster.local:9092
+  jwt-access-expiration: "36000000"
+  jwt-refresh-expiration: "36000000"
+  s3-region: ap-northeast-2
+  s3-bucket-name: eum-msa-bucket
+  eureka-ip: http://discovery.eum-backend.svc.cluster.local:8761/eureka 

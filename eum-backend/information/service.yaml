@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: information
+  namespace: eum-backend
+  labels:
+    app: information
+spec:
+  selector:
+    app: information
+  ports:
+    - protocol: TCP
+      port: 8083
+      targetPort: 8083
+  type: ClusterIP 

@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alarm
+  namespace: eum-backend
+  labels:
+    app: alarm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alarm
+  template:
+    metadata:
+      labels:
+        app: alarm
+    spec:
+      containers:
+        - name: alarm-container
+          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-alarm:latest
+          ports:
+            - containerPort: 8082
+          env:
+            - name: DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: alarm-config
+                  key: db-url
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: alarm-secret
+                  key: db-username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: alarm-secret
+                  key: db-password
+            - name: KAFKA_BOOTSTRAP_SERVER_URI
+              valueFrom:
+                configMapKeyRef:
+                  name: alarm-config
+                  key: kafka-url
+            - name: EUREKA_IP
+              valueFrom:
+                configMapKeyRef:
+                  name: alarm-config
+                  key: eureka-ip
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m" 

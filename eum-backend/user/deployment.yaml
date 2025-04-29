@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user
+  namespace: eum-backend
+  labels:
+    app: user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user
+  template:
+    metadata:
+      labels:
+        app: user
+    spec:
+      containers:
+        - name: user-container
+          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-user:latest
+          ports:
+            - containerPort: 8081
+          env:
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: user-secret
+                  key: jwt-secret
+            - name: JWT_ACCESS_EXPIRATION
+              valueFrom:
+                configMapKeyRef:
+                  name: user-config
+                  key: jwt-access-expiration
+            - name: JWT_REFRESH_EXPIRATION
+              valueFrom:
+                configMapKeyRef:
+                  name: user-config
+                  key: jwt-refresh-expiration
+            - name: DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: user-config
+                  key: db-url
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: user-secret
+                  key: db-user
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: user-secret
+                  key: db-password
+            - name: EUREKA_IP
+              valueFrom:
+                configMapKeyRef:
+                  name: user-config
+                  key: eureka-ip
+            - name: KAFKA_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: user-config
+                  key: kafka-url
+            - name: GOOGLE_ID
+              valueFrom:
+                secretKeyRef:
+                  name: user-secret
+                  key: google-id
+            - name: GOOGLE_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: user-secret
+                  key: google-secret
+            - name: GOOGLE_URI
+              valueFrom:
+                configMapKeyRef:
+                  name: user-config
+                  key: google-uri
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m" 

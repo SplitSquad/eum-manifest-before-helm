@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: log-config
+  namespace: eum-backend
+  labels:
+    app: log
+data:
+  elasticsearch-url: http://elasticsearch.eum-infra.svc.cluster.local:9200
+  eureka-ip: http://discovery.eum-backend.svc.cluster.local:8761/eureka 

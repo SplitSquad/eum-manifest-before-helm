@@ -1,0 +1,56 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: eum-backend
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/your-organization/eum-manifests.git
+    targetRevision: HEAD
+    path: manifests/eum-backend
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: eum-backend
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: eum-ai
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/your-organization/eum-manifests.git
+    targetRevision: HEAD
+    path: manifests/eum-ai
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: eum-ai
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: eum-infra
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/your-organization/eum-manifests.git
+    targetRevision: HEAD
+    path: manifests/eum-infra
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: eum-infra
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true 
