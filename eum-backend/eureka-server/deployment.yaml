@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: eureka-server-container
-          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-eureka-server:latest
+          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-eureka-server:5cdc08e774bcccae02829e4f1314d7699ef5d263
           ports:
             - containerPort: 8761
           resources:
