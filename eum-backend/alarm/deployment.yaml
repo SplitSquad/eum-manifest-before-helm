@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: alarm-container
-          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-alarm:366457b3600e5be6a497d31cb30f1540897ddd9a
+          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-alarm:d778a97cd9e69f6d382e561f7720f6046898d4a9
           ports:
             - containerPort: 8082
           env:
