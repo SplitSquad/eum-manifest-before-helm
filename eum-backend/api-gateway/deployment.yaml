@@ -71,6 +71,20 @@ spec:
                 configMapKeyRef:
                   name: api-gateway-config
                   key: front-ip
+            - name: SPRING_CLOUD_GATEWAY_ROUTES_0_URI
+              value: "lb://COMMUNITY"
+            - name: SPRING_CLOUD_GATEWAY_ROUTES_0_ID
+              value: "community"
+            - name: SPRING_CLOUD_LOADBALANCER_RIBBON_ENABLED
+              value: "false"
+            - name: RIBBON_EUREKA_ENABLED
+              value: "true"
+            - name: SPRING_CLOUD_LOADBALANCER_RETRY_ENABLED
+              value: "true"
+            - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
+              value: "true"
+            - name: SPRING_CLOUD_SERVICE_REGISTRY_AUTO_REGISTRATION_ENABLED
+              value: "true"
           resources:
             requests:
               memory: "256Mi"
