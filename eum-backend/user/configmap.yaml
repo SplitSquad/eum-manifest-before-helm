@@ -8,7 +8,7 @@ metadata:
 data:
   jwt-access-expiration: "36000000"
   jwt-refresh-expiration: "36000000"
-  db-url: jdbc:mysql://eum-back.cbuqoagm4dq9.ap-northeast-2.rds.amazonaws.com:3306/user?useSSL=false&allowPublicKeyRetrieval=true
+  db-url: jdbc:mysql://eum-back.cbuqoagm4dq9.ap-northeast-2.rds.amazonaws.com:3306/user
   eureka-ip: http://discovery.eum-backend.svc.cluster.local:8761/eureka
   kafka-url: kafka-broker-0.kafka-headless.eum-infra.svc.cluster.local:9092
   google-uri: http://user.eum-backend.svc.cluster.local:8081/auth/login
