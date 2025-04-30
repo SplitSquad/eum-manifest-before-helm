@@ -81,6 +81,10 @@ spec:
                 configMapKeyRef:
                   name: user-config
                   key: redis-url
+            - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
+              value: "true"
+            - name: SPRING_APPLICATION_NAME
+              value: "USER"
           resources:
             requests:
               memory: "256Mi"

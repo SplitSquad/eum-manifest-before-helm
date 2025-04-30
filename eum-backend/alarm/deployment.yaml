@@ -46,6 +46,10 @@ spec:
                 configMapKeyRef:
                   name: alarm-config
                   key: eureka-ip
+            - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
+              value: "true"
+            - name: SPRING_APPLICATION_NAME
+              value: "ALARM"
           resources:
             requests:
               memory: "256Mi"

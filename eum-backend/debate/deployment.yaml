@@ -66,6 +66,10 @@ spec:
                 configMapKeyRef:
                   name: debate-config
                   key: eureka-ip
+            - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
+              value: "true"
+            - name: SPRING_APPLICATION_NAME
+              value: "DEBATE"
           resources:
             requests:
               memory: "256Mi"
