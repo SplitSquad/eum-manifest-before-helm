@@ -10,4 +10,4 @@ data:
   jwt-refresh-expiration: "36000000"
   s3-region: ap-northeast-2
   s3-bucket-name: eum-msa-bucket
-  eureka-ip: http://eureka-server.eum-backend.svc.cluster.local:8761/eureka 
+  eureka-ip: http://discovery.eum-backend.svc.cluster.local:8761/eureka 

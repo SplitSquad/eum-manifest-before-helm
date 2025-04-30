@@ -3,8 +3,7 @@ kind: ConfigMap
 metadata:
   name: user-config
   namespace: eum-backend
-  labels:
-    app: user
+
 data:
   jwt-access-expiration: "36000000"
   jwt-refresh-expiration: "36000000"

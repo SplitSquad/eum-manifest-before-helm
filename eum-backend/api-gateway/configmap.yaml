@@ -3,8 +3,7 @@ kind: ConfigMap
 metadata:
   name: api-gateway-config
   namespace: eum-backend
-  labels:
-    app: api-gateway
+
 data:
   db-url: jdbc:mysql://eum-back.cbuqoagm4dq9.ap-northeast-2.rds.amazonaws.com:3306/user
   jwt-access-expiration: "36000000"

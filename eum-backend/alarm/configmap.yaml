@@ -3,8 +3,6 @@ kind: ConfigMap
 metadata:
   name: alarm-config
   namespace: eum-backend
-  labels:
-    app: alarm
 data:
   db-url: jdbc:mysql://eum-back.cbuqoagm4dq9.ap-northeast-2.rds.amazonaws.com:3306/alarm
   kafka-url: kafka-broker-0.kafka-headless.eum-infra.svc.cluster.local:9092
