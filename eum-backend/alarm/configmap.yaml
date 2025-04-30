@@ -5,5 +5,5 @@ metadata:
   namespace: eum-backend
 data:
   db-url: jdbc:mysql://eum-back.cbuqoagm4dq9.ap-northeast-2.rds.amazonaws.com:3306/alarm
-  kafka-url: kafka-broker-0.kafka-headless.eum-infra.svc.cluster.local:9092
+  kafka-url: kafka.eum-infra.svc.cluster.local:9092
   eureka-ip: http://discovery.eum-backend.svc.cluster.local:8761/eureka 
