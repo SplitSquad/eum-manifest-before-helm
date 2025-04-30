@@ -6,7 +6,7 @@ metadata:
   labels:
     app: api-gateway
 data:
-  db-url: jdbc:mysql://eum-db.eum-infra.svc.cluster.local:3306/user?useSSL=false&allowPublicKeyRetrieval=true
+  db-url: jdbc:mysql://eum-back.cbuqoagm4dq9.ap-northeast-2.rds.amazonaws.com:3306/user?useSSL=false&allowPublicKeyRetrieval=true
   jwt-access-expiration: "36000000"
   jwt-refresh-expiration: "36000000"
   redis-host: redis.eum-infra.svc.cluster.local

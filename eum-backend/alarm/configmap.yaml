@@ -6,6 +6,6 @@ metadata:
   labels:
     app: alarm
 data:
-  db-url: jdbc:mysql://eum-db.eum-infra.svc.cluster.local:3306/alarm?useSSL=false&allowPublicKeyRetrieval=true
+  db-url: jdbc:mysql://eum-back.cbuqoagm4dq9.ap-northeast-2.rds.amazonaws.com:3306/alarm?useSSL=false&allowPublicKeyRetrieval=true
   kafka-url: kafka-broker-0.kafka-headless.eum-infra.svc.cluster.local:9092
   eureka-ip: http://discovery.eum-backend.svc.cluster.local:8761/eureka 
