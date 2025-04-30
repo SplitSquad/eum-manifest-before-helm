@@ -30,7 +30,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: api-gateway-secret
-                  key: db-user
+                  key: db-username
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
