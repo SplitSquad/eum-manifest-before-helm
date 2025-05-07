@@ -73,6 +73,11 @@ spec:
                   key: front-ip
             - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
               value: "true"
+            - name: DEBATE_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: api-gateway-secret
+                  key: debate-secret
           resources:
             requests:
               memory: "256Mi"
