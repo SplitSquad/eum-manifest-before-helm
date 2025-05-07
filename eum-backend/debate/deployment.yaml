@@ -70,6 +70,10 @@ spec:
               value: "true"
             - name: SPRING_APPLICATION_NAME
               value: "DEBATE"
+            - name: TZ
+              value: "Asia/Seoul"
+            - name: SPRING_JACKSON_TIME-ZONE
+              value: "Asia/Seoul"
           resources:
             requests:
               memory: "256Mi"

@@ -78,6 +78,10 @@ spec:
                 secretKeyRef:
                   name: api-gateway-secret
                   key: debate-secret
+            - name: TZ
+              value: "Asia/Seoul"
+            - name: SPRING_JACKSON_TIME-ZONE
+              value: "Asia/Seoul"
           resources:
             requests:
               memory: "256Mi"
