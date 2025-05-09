@@ -5,7 +5,7 @@ metadata:
   namespace: eum-backend
 
 data:
-  jwt-access-expiration: "60000"
+  jwt-access-expiration: "36000000"
   jwt-refresh-expiration: "36000000"
   db-url: jdbc:mysql://eum-back.cbuqoagm4dq9.ap-northeast-2.rds.amazonaws.com:3306/user
   eureka-ip: http://discovery.eum-backend.svc.cluster.local:8761/eureka
