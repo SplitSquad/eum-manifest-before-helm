@@ -26,7 +26,7 @@ spec:
                 secretKeyRef:
                   name: chatbot-secret
                   key: groq-api-key
-            - name: OPENAI_API_KEY
+            - name: HIGH_PERFORMANCE_OPENAI_API_KEY
               valueFrom:
                 secretKeyRef:
                   name: chatbot-secret
