@@ -71,6 +71,11 @@ spec:
                 configMapKeyRef:
                   name: api-gateway-config
                   key: front-ip
+            - name: GATEWAY_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: api-gateway-config
+                  key: gateway-url
             - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
               value: "true"
             - name: DEBATE_SECRET
