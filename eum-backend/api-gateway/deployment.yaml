@@ -61,7 +61,7 @@ spec:
                 configMapKeyRef:
                   name: api-gateway-config
                   key: redis-port
-            - name: EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE
+            - name: EUREKA_IP
               valueFrom:
                 configMapKeyRef:
                   name: api-gateway-config
