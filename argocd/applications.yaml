@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/your-organization/eum-manifests.git
+    repoURL: https://github.com/your-organization/devops.git
     targetRevision: HEAD
     path: manifests/eum-backend
   destination:
@@ -25,7 +25,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/your-organization/eum-manifests.git
+    repoURL: https://github.com/your-organization/devops.git
     targetRevision: HEAD
     path: manifests/eum-ai
   destination:
@@ -44,7 +44,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/your-organization/eum-manifests.git
+    repoURL: https://github.com/your-organization/devops.git
     targetRevision: HEAD
     path: manifests/eum-infra
   destination:

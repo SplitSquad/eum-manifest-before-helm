@@ -1,0 +1,139 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatbot
+  namespace: eum-ai
+  labels:
+    app: chatbot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chatbot
+  template:
+    metadata:
+      labels:
+        app: chatbot
+    spec:
+      containers:
+        - name: chatbot-container
+          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-chatbot:latest
+          ports:
+            - containerPort: 8000
+          env:
+            - name: GROQ_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: chatbot-secret
+                  key: groq-api-key
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: chatbot-secret
+                  key: openai-api-key
+            - name: GOOGLE_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: chatbot-secret
+                  key: google-api-key
+            - name: GOOGLE_CSE_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: google-cse-id
+            - name: CHROMA_PERSIST_DIRECTORY
+              value: "/app/data/chroma"
+            - name: LOG_LEVEL
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: log-level
+            - name: LIGHTWEIGHT_LLM_PROVIDER
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: lightweight-llm-provider
+            - name: HIGH_PERFORMANCE_LLM_PROVIDER
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: high-performance-llm-provider
+            - name: WEB_SEARCH_PROVIDER
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: web-search-provider
+            - name: LIGHTWEIGHT_OPENAI_MODEL
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: lightweight-openai-model
+            - name: LIGHTWEIGHT_OPENAI_TIMEOUT
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: lightweight-openai-timeout
+            - name: HIGH_PERFORMANCE_OPENAI_MODEL
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: high-performance-openai-model
+            - name: HIGH_PERFORMANCE_OPENAI_TIMEOUT
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: high-performance-openai-timeout
+            - name: GROQ_LIGHTWEIGHT_MODEL
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: groq-lightweight-model
+            - name: GROQ_HIGHPERFORMANCE_MODEL
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: groq-highperformance-model
+            - name: EMBEDDING_MODEL
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: embedding-model
+            - name: SEARCH_K
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: search-k
+            - name: SEARCH_THRESHOLD
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: search-threshold
+            - name: HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: host
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: port
+            - name: DEBUG
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: debug
+          volumeMounts:
+            - name: chroma-data
+              mountPath: /app/data/chroma
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+      volumes:
+        - name: chroma-data
+          persistentVolumeClaim:
+            claimName: chatbot-pvc 

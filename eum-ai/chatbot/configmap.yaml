@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: chatbot-config
+  namespace: eum-ai
+data:
+  log-level: "DEBUG"
+  lightweight-llm-provider: "openai"
+  high-performance-llm-provider: "openai"
+  web-search-provider: "google"
+  lightweight-openai-model: "gpt-4o-mini"
+  lightweight-openai-timeout: "30"
+  high-performance-openai-model: "gpt-4.1-nano"
+  high-performance-openai-timeout: "60"
+  groq-lightweight-model: "llama-3.1-8b-instant"
+  groq-highperformance-model: "llama-3.3-70b-versatile"
+  google-cse-id: "d2cf79d8b6e0e4748"
+  embedding-model: "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+  search-k: "10"
+  search-threshold: "0.5"
+  host: "0.0.0.0"
+  port: "8000"
+  debug: "True" 
