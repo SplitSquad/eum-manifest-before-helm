@@ -31,6 +31,11 @@ spec:
                 secretKeyRef:
                   name: chatbot-secret
                   key: openai-api-key
+            - name: LIGHTWEIGHT_OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: chatbot-secret
+                  key: openai-api-key
             - name: GOOGLE_API_KEY
               valueFrom:
                 secretKeyRef:
