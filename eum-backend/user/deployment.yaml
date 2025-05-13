@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: user-container
-          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-user:b49c2f582a6becf887f0ba95e8fee4b01c0de0ba
+          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-user:5b3c7f64c5f009c2587cbfe474ddd1ef3c3f3a99
           ports:
             - containerPort: 8081
           env:
