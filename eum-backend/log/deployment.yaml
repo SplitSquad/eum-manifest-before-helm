@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: log-container
-          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-log:9aba2cb694deecd6b7c49363b54f698a180a2124
+          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-log:d9779af47ec7bfd3fc04bec22788f3d85564291f
           ports:
             - containerPort: 8085
           env:
