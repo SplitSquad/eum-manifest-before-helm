@@ -140,4 +140,5 @@ spec:
               cpu: "500m"
       volumes:
         - name: chroma-data
-          emptyDir: {} 
+          persistentVolumeClaim:
+            claimName: chatbot-pvc
