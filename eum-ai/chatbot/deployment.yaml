@@ -152,7 +152,7 @@ spec:
               value: "true"
             - name: SPRING_APPLICATION_NAME
               value: "CHATBOT"
-            - name: EUREKA_INSTANCE_HOSTNAME
+            - name: EUREKA_INSTANCE_HOST
               valueFrom:
                 configMapKeyRef:
                   name: chatbot-config
