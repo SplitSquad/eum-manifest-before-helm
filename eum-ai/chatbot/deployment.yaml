@@ -138,7 +138,12 @@ spec:
                 configMapKeyRef:
                   name: chatbot-config
                   key: eureka-ip
-            - name: EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE
+            - name: EUREKA_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: EUREKA_URL
+            - name: EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE
               valueFrom:
                 configMapKeyRef:
                   name: chatbot-config
@@ -147,7 +152,7 @@ spec:
               value: "true"
             - name: SPRING_APPLICATION_NAME
               value: "CHATBOT"
-            - name: EUREKA_INSTANCE_HOST
+            - name: EUREKA_INSTANCE_HOSTNAME
               valueFrom:
                 configMapKeyRef:
                   name: chatbot-config
