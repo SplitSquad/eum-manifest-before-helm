@@ -5,4 +5,5 @@ resources:
   - service.yaml
   - configmap.yaml
   - secret.yaml
-  - pvc.yaml 
+  - pvc.yaml
+  - storage-class.yaml 
