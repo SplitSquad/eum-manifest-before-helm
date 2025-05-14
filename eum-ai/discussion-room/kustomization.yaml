@@ -7,5 +7,4 @@ resources:
   - configmap.yaml
   - secret.yaml
   - deployment.yaml
-  - service.yaml
-  - pvc.yaml 
+  - service.yaml 
