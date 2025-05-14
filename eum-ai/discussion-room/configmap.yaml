@@ -6,7 +6,7 @@ metadata:
 data:
   APP_NAME: "EUM-DISCUSSION-ROOM"
   PORT: "8000"
-  EUREKA_URL: "http://localhost:8761/eureka"
+  EUREKA_URL: "http://discovery.eum-backend.svc.cluster.local:8761/eureka"
   LIGHTWEIGHT_LLM_PROVIDER: "ollama"
   HIGH_PERFORMANCE_LLM_PROVIDER: "ollama"
   GROQ_LIGHTWEIGHT_MODEL: "gemma2-9b-it"
