@@ -7,8 +7,8 @@ metadata:
     argocd.argoproj.io/sync-options: Prune=false
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 5Gi
-  storageClassName: efs-sc 
+  storageClassName: gp2 

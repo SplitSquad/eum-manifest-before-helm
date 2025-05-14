@@ -10,6 +10,11 @@ spec:
   selector:
     matchLabels:
       app: chatbot
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
   template:
     metadata:
       labels:
@@ -147,11 +152,11 @@ spec:
               mountPath: /app/data/chroma
           resources:
             requests:
-              memory: "512Mi"
-              cpu: "250m"
-            limits:
               memory: "1Gi"
-              cpu: "500m"
+              cpu: "1"
+            limits:
+              memory: "4Gi"
+              cpu: "2"
       volumes:
         - name: chroma-data
           persistentVolumeClaim:
