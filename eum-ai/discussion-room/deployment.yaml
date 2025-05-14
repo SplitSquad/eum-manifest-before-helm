@@ -43,6 +43,28 @@ spec:
               configMapKeyRef:
                 name: discussion-room-config
                 key: EUREKA_URL
+          - name: EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: eureka-ip
+          - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
+            value: "true"
+          - name: EUREKA_INSTANCE_HOSTNAME
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: eureka-instance-host
+          - name: SPRING_APPLICATION_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: eureka-app-name
+          - name: EUREKA_INSTANCE_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: eureka-instance-port
           - name: LIGHTWEIGHT_LLM_PROVIDER
             valueFrom:
               configMapKeyRef:
