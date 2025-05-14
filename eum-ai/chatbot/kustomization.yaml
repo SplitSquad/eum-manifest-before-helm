@@ -6,4 +6,3 @@ resources:
   - configmap.yaml
   - secret.yaml
   - pvc.yaml
-  - storage-class.yaml 
