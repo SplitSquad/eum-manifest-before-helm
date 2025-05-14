@@ -22,4 +22,3 @@ data:
   port: "8000"
   debug: "True"
   eureka-ip: http://discovery.eum-backend.svc.cluster.local:8761/eureka 
-  eureka-instance-host: "chatbot.eum-ai.svc.cluster.local"
