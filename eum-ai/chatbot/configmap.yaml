@@ -21,4 +21,15 @@ data:
   host: "0.0.0.0"
   port: "8000"
   debug: "True"
-  eureka-ip: http://discovery.eum-backend.svc.cluster.local:8761/eureka 
+  eureka-ip: http://discovery.eum-backend.svc.cluster.local:8761/eureka
+  eureka-instance-host: "chatbot.eum-ai.svc.cluster.local"
+  lightweight-ollama-url: "http://ollama.eum-ai.svc.cluster.local:11434"
+  lightweight-ollama-model: "gemma3:1b"
+  lightweight-ollama-timeout: "20"
+  high-performance-ollama-url: "http://ollama.eum-ai.svc.cluster.local:11434"
+  high-performance-ollama-model: "gemma3:4b"
+  high-performance-ollama-timeout: "60"
+  duckduckgo-api-key: "none"
+  log-file: "/app/logs/chatbot.log"
+  eureka-app-name: "eum-chatbot"
+  eureka-instance-port: "8000" 

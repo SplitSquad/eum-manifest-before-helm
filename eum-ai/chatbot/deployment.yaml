@@ -147,6 +147,61 @@ spec:
               value: "true"
             - name: SPRING_APPLICATION_NAME
               value: "CHATBOT"
+            - name: EUREKA_INSTANCE_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: eureka-instance-host
+            - name: EUREKA_APP_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: eureka-app-name
+            - name: EUREKA_INSTANCE_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: eureka-instance-port
+            - name: LIGHTWEIGHT_OLLAMA_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: lightweight-ollama-url
+            - name: LIGHTWEIGHT_OLLAMA_MODEL
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: lightweight-ollama-model
+            - name: LIGHTWEIGHT_OLLAMA_TIMEOUT
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: lightweight-ollama-timeout
+            - name: HIGH_PERFORMANCE_OLLAMA_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: high-performance-ollama-url
+            - name: HIGH_PERFORMANCE_OLLAMA_MODEL
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: high-performance-ollama-model
+            - name: HIGH_PERFORMANCE_OLLAMA_TIMEOUT
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: high-performance-ollama-timeout
+            - name: DUCKDUCKGO_API_KEY
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: duckduckgo-api-key
+            - name: LOG_FILE
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: log-file
           volumeMounts:
             - name: chroma-data
               mountPath: /app/data/chroma
