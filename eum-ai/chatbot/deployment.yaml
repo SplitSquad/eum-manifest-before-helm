@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: chatbot-container
-          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-chatbot:d584c685c2a16c880d45aeac440f2e2f163a94d2
+          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-chatbot:c510ee02ad44e5c28830d24043f6ba8fb1a4f31e
           ports:
             - containerPort: 8000
           env:
