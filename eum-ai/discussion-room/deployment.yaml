@@ -1,0 +1,167 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: discussion-room
+  namespace: eum-ai
+  labels:
+    app: discussion-room
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: discussion-room
+  template:
+    metadata:
+      labels:
+        app: discussion-room
+    spec:
+      containers:
+      - name: discussion-room
+        image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-debate-room:latest
+        ports:
+        - containerPort: 8000
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        env:
+          - name: APP_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: APP_NAME
+          - name: PORT
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: PORT
+          - name: EUREKA_URL
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: EUREKA_URL
+          - name: LIGHTWEIGHT_LLM_PROVIDER
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: LIGHTWEIGHT_LLM_PROVIDER
+          - name: HIGH_PERFORMANCE_LLM_PROVIDER
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: HIGH_PERFORMANCE_LLM_PROVIDER
+          - name: LIGHTWEIGHT_OLLAMA_URL
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: LIGHTWEIGHT_OLLAMA_URL
+          - name: LIGHTWEIGHT_OLLAMA_MODEL
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: LIGHTWEIGHT_OLLAMA_MODEL
+          - name: LIGHTWEIGHT_OLLAMA_TIMEOUT
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: LIGHTWEIGHT_OLLAMA_TIMEOUT
+          - name: HIGH_PERFORMANCE_OLLAMA_URL
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: HIGH_PERFORMANCE_OLLAMA_URL
+          - name: HIGH_PERFORMANCE_OLLAMA_MODEL
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: HIGH_PERFORMANCE_OLLAMA_MODEL
+          - name: HIGH_PERFORMANCE_OLLAMA_TIMEOUT
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: HIGH_PERFORMANCE_OLLAMA_TIMEOUT
+          - name: LIGHTWEIGHT_OPENAI_MODEL
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: LIGHTWEIGHT_OPENAI_MODEL
+          - name: LIGHTWEIGHT_OPENAI_TIMEOUT
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: LIGHTWEIGHT_OPENAI_TIMEOUT
+          - name: HIGH_PERFORMANCE_OPENAI_MODEL
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: HIGH_PERFORMANCE_OPENAI_MODEL
+          - name: HIGH_PERFORMANCE_OPENAI_TIMEOUT
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: HIGH_PERFORMANCE_OPENAI_TIMEOUT
+          - name: GROQ_LIGHTWEIGHT_MODEL
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: GROQ_LIGHTWEIGHT_MODEL
+          - name: GROQ_HIGHPERFORMANCE_MODEL
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: GROQ_HIGHPERFORMANCE_MODEL
+          - name: S3_REGION
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: S3_REGION
+          - name: S3_BUCKET_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: S3_BUCKET_NAME
+          - name: PYTHONPATH
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: PYTHONPATH
+          - name: GROQ_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: discussion-room-secret
+                key: GROQ_API_KEY
+          - name: OPENAI_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: discussion-room-secret
+                key: OPENAI_API_KEY
+          - name: LIGHTWEIGHT_OPENAI_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: discussion-room-secret
+                key: LIGHTWEIGHT_OPENAI_API_KEY
+          - name: HIGH_PERFORMANCE_OPENAI_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: discussion-room-secret
+                key: HIGH_PERFORMANCE_OPENAI_API_KEY
+          - name: S3_ACCESS_KEY
+            valueFrom:
+              secretKeyRef:
+                name: discussion-room-secret
+                key: S3_ACCESS_KEY
+          - name: S3_SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                name: discussion-room-secret
+                key: S3_SECRET_KEY
+        volumeMounts:
+        - name: discussion-data
+          mountPath: /app/data
+      volumes:
+      - name: discussion-data
+        persistentVolumeClaim:
+          claimName: discussion-room-pvc
