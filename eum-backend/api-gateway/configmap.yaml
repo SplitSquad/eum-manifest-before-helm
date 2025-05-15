@@ -11,5 +11,5 @@ data:
   redis-host: redis.eum-infra.svc.cluster.local
   redis-port: "6379"
   eureka-url: http://discovery.eum-backend.svc.cluster.local:8761/eureka
-  front-ip: http://localhost:3000
+  front-ip: https://dv0fezlo6i51i.cloudfront.net/
   gateway-url: http://af9c53d0f69ea45c793da25cdc041496-1311657830.ap-northeast-2.elb.amazonaws.com:80/auth
