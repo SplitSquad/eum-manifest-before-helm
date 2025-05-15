@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: classifier
+  namespace: eum-ai
+  labels:
+    app: classifier
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: classifier
+  template:
+    metadata:
+      labels:
+        app: classifier
+    spec:
+      containers:
+      - name: classifier
+        image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-classifier:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: APP_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: classifier-config
+              key: APP_NAME
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              name: classifier-config
+              key: PORT
+        - name: EUREKA_URL
+          valueFrom:
+            configMapKeyRef:
+              name: classifier-config
+              key: EUREKA_URL
+        - name: EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE
+          valueFrom:
+            configMapKeyRef:
+              name: classifier-config
+              key: eureka-ip
+        - name: EUREKA_INSTANCE_HOSTNAME
+          valueFrom:
+            configMapKeyRef:
+              name: classifier-config
+              key: eureka-instance-host
+        - name: EUREKA_APP_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: classifier-config
+              key: eureka-app-name
+        - name: LOG_SERVICE_URL
+          valueFrom:
+            configMapKeyRef:
+              name: classifier-config
+              key: LOG_SERVICE_URL
+        - name: LOG_SERVICE_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: classifier-secret
+              key: LOG_SERVICE_TOKEN
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m" 

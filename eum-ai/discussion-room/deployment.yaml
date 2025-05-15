@@ -55,7 +55,7 @@ spec:
               configMapKeyRef:
                 name: discussion-room-config
                 key: eureka-instance-host
-          - name: SPRING_APPLICATION_NAME
+          - name: EUREKA_APP_NAME
             valueFrom:
               configMapKeyRef:
                 name: discussion-room-config

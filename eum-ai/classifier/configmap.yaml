@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: classifier-config
+  namespace: eum-ai
+data:
+  APP_NAME: "EUM-CLASSIFIER"
+  PORT: "8000"
+  EUREKA_URL: "http://discovery.eum-backend.svc.cluster.local:8761/eureka"
+  eureka-ip: "http://discovery.eum-backend.svc.cluster.local:8761/eureka"
+  eureka-instance-host: "classifier.eum-ai.svc.cluster.local"
+  eureka-app-name: "eum-classifier"
+  eureka-instance-port: "8000"
+  LOG_SERVICE_URL: "http://af9c53d0f69ea45c793da25cdc041496-1311657830.ap-northeast-2.elb.amazonaws.com" 
