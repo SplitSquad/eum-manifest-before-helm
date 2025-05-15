@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: chatbot-container
-          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-chatbot:d584c685c2a16c880d45aeac440f2e2f163a94d2
+          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-chatbot:b2a5f040ee61db66a9bc5e6d8ae5123b529bbd75
           ports:
             - containerPort: 8000
           env:
@@ -138,7 +138,12 @@ spec:
                 configMapKeyRef:
                   name: chatbot-config
                   key: eureka-ip
-            - name: EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE
+            - name: EUREKA_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: chatbot-config
+                  key: EUREKA_URL
+            - name: EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE
               valueFrom:
                 configMapKeyRef:
                   name: chatbot-config
