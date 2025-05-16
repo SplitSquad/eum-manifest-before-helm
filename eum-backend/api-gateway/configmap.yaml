@@ -14,4 +14,4 @@ data:
   front-ip: http://localhost:3000/
   gateway-url: https://api.eum-friends.com/auth
 
-  # 수정
+  # 프론트 되는 버전
