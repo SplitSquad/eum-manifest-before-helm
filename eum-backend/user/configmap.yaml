@@ -10,6 +10,6 @@ data:
   db-url: jdbc:mysql://eum-back.cbuqoagm4dq9.ap-northeast-2.rds.amazonaws.com:3306/user
   eureka-ip: http://discovery.eum-backend.svc.cluster.local:8761/eureka
   kafka-url: kafka.eum-infra.svc.cluster.local:9092
-  google-uri: http://localhost:3000/auth/login
+  google-uri: http://localhost:3000/auth/callback
   # google-uri: https://eum-friends.com/auth/login
   redis-url: redis.eum-infra.svc.cluster.local 
