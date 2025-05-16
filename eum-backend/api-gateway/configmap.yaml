@@ -13,3 +13,5 @@ data:
   eureka-url: http://discovery.eum-backend.svc.cluster.local:8761/eureka
   front-ip: https://dv0fezlo6i51i.cloudfront.net/
   gateway-url: https://api.eum-friends.com/auth
+
+  # 수정
