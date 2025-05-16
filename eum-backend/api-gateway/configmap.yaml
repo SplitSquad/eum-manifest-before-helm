@@ -11,7 +11,7 @@ data:
   redis-host: redis.eum-infra.svc.cluster.local
   redis-port: "6379"
   eureka-url: http://discovery.eum-backend.svc.cluster.local:8761/eureka
-  front-ip: https://eum-friends.com/
+  front-ip: https://localhost:3000/
   gateway-url: https://api.eum-friends.com/auth
 
   # 수정
