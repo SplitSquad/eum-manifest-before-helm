@@ -7,7 +7,7 @@ data:
   APP_NAME: "EUM-CLASSIFIER"
   PORT: "8000"
   EUREKA_URL: "http://discovery.eum-backend.svc.cluster.local:8761/eureka"
-  eureka-ip: "http://localhost:8761/eureka"
+  eureka-ip: http://discovery.eum-backend.svc.cluster.local:8761/eureka
   eureka-instance-host: "localhost"
   eureka-app-name: "eum-classifier"
   eureka-instance-port: "8000"
