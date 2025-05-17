@@ -36,12 +36,21 @@ spec:
             configMapKeyRef:
               name: classifier-config
               key: EUREKA_URL
+        - name: EUREKA_IP
+          valueFrom:
+            configMapKeyRef:
+              name: classifier-config
+              key: eureka-ip
         - name: EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE
           valueFrom:
             configMapKeyRef:
               name: classifier-config
               key: eureka-ip
-        - name: EUREKA_INSTANCE_HOSTNAME
+        - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
+          value: "true"
+        - name: SPRING_APPLICATION_NAME
+          value: "eum-classifier"
+        - name: EUREKA_INSTANCE_HOST
           valueFrom:
             configMapKeyRef:
               name: classifier-config
@@ -56,13 +65,6 @@ spec:
             configMapKeyRef:
               name: classifier-config
               key: eureka-instance-port
-        - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
-          value: "true"
-        - name: SPRING_APPLICATION_NAME
-          valueFrom:
-            configMapKeyRef:
-              name: classifier-config
-              key: eureka-app-name
         - name: HOST
           valueFrom:
             configMapKeyRef:
