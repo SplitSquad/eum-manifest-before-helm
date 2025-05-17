@@ -66,6 +66,11 @@ spec:
                 configMapKeyRef:
                   name: debate-config
                   key: eureka-ip
+            - name: AI_IP
+              valueFrom:
+                configMapKeyRef:
+                  name: debate-config
+                  key: ai-ip
             - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
               value: "true"
             - name: SPRING_APPLICATION_NAME

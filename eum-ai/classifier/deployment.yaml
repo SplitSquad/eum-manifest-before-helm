@@ -49,7 +49,17 @@ spec:
         - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
           value: "true"
         - name: SPRING_APPLICATION_NAME
-          value: "CLASSIFIER"
+          value: "eum-classifier"
+        - name: EUREKA_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: classifier-config
+              key: EUREKA_HOST
+        - name: EUREKA_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: classifier-config
+              key: EUREKA_PORT
         - name: EUREKA_INSTANCE_HOST
           valueFrom:
             configMapKeyRef:
