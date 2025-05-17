@@ -51,6 +51,25 @@ spec:
             configMapKeyRef:
               name: classifier-config
               key: eureka-app-name
+        - name: EUREKA_INSTANCE_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: classifier-config
+              key: eureka-instance-port
+        - name: HOST
+          valueFrom:
+            configMapKeyRef:
+              name: classifier-config
+              key: host
+        - name: DEBUG
+          valueFrom:
+            configMapKeyRef:
+              name: classifier-config
+              key: debug
+        - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
+          value: "true"
+        - name: SPRING_APPLICATION_NAME
+          value: "CLASSIFIER"
         - name: LOG_SERVICE_URL
           valueFrom:
             configMapKeyRef:
