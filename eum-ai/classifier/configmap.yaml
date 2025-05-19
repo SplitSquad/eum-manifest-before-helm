@@ -11,7 +11,7 @@ data:
   eureka-instance-host: "localhost"
   eureka-app-name: "eum-classifier"
   eureka-instance-port: "8000"
-  LOG_SERVICE_URL: "http://af9c53d0f69ea45c793da25cdc041496-1311657830.ap-northeast-2.elb.amazonaws.com"
+  LOG_SERVICE_URL: https://api.eum-friends.com
   host: "0.0.0.0"
   port: "8000"
   debug: "True"
