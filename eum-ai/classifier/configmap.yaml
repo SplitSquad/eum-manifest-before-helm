@@ -8,10 +8,11 @@ data:
   PORT: "8000"
   EUREKA_URL: "http://discovery.eum-backend.svc.cluster.local:8761/eureka"
   eureka-ip: http://discovery.eum-backend.svc.cluster.local:8761/eureka
-  eureka-instance-host: "localhost"
+  eureka-instance-host: "classifier.eum-ai.svc.cluster.local"
   eureka-app-name: "eum-classifier"
-  eureka-instance-port: "8000"
+  eureka-instance-port: "8003"
   LOG_SERVICE_URL: https://api.eum-friends.com
+  LOG_SERVICE_TOKEN: "dshakjbjhvodshviarehvbdzjchvaudsvibaidebuaeddbxnbcadwhjefuacxvfdsvhiczsnvf"
   host: "0.0.0.0"
   port: "8000"
   debug: "True"

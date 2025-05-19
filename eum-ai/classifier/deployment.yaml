@@ -17,78 +17,53 @@ spec:
     spec:
       containers:
       - name: classifier
-        image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-classifier:0c622c72d20bcba59f0522a570bb62e3a0b753b1
+        image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-classifier:latest
         ports:
-        - containerPort: 8000
-        env:
-        - name: APP_NAME
-          valueFrom:
-            configMapKeyRef:
-              name: classifier-config
-              key: APP_NAME
-        - name: PORT
-          valueFrom:
-            configMapKeyRef:
-              name: classifier-config
-              key: PORT
-        - name: EUREKA_URL
-          valueFrom:
-            configMapKeyRef:
-              name: classifier-config
-              key: EUREKA_URL
-        - name: EUREKA_IP
-          valueFrom:
-            configMapKeyRef:
-              name: classifier-config
-              key: eureka-ip
-        - name: EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE
-          valueFrom:
-            configMapKeyRef:
-              name: classifier-config
-              key: eureka-ip
-        - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
-          value: "true"
-        - name: SPRING_APPLICATION_NAME
-          value: "eum-classifier"
-        - name: EUREKA_INSTANCE_HOST
-          valueFrom:
-            configMapKeyRef:
-              name: classifier-config
-              key: eureka-instance-host
-        - name: EUREKA_APP_NAME
-          valueFrom:
-            configMapKeyRef:
-              name: classifier-config
-              key: eureka-app-name
-        - name: EUREKA_INSTANCE_PORT
-          valueFrom:
-            configMapKeyRef:
-              name: classifier-config
-              key: eureka-instance-port
-        - name: HOST
-          valueFrom:
-            configMapKeyRef:
-              name: classifier-config
-              key: host
-        - name: DEBUG
-          valueFrom:
-            configMapKeyRef:
-              name: classifier-config
-              key: debug
-        - name: LOG_SERVICE_URL
-          valueFrom:
-            configMapKeyRef:
-              name: classifier-config
-              key: LOG_SERVICE_URL
-        - name: LOG_SERVICE_TOKEN
-          valueFrom:
-            secretKeyRef:
-              name: classifier-secret
-              key: LOG_SERVICE_TOKEN
+        - containerPort: 8003
         resources:
           requests:
             memory: "256Mi"
             cpu: "100m"
           limits:
             memory: "512Mi"
-            cpu: "500m" 
+            cpu: "500m"
+        env:
+          - name: EUREKA_URL
+            valueFrom:
+              configMapKeyRef:
+                name: classifier-config
+                key: EUREKA_URL
+          - name: EUREKA_IP
+            valueFrom:
+              configMapKeyRef:
+                name: classifier-config
+                key: eureka-ip
+          - name: EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE
+            valueFrom:
+              configMapKeyRef:
+                name: classifier-config
+                key: eureka-ip
+          - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
+            value: "true"
+          - name: SPRING_APPLICATION_NAME
+            value: "eum-classifier"
+          - name: EUREKA_INSTANCE_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: classifier-config
+                key: eureka-instance-host
+          - name: EUREKA_APP_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: classifier-config
+                key: eureka-app-name
+          - name: LOG_SERVICE_URL
+            valueFrom:
+              configMapKeyRef:
+                name: classifier-config
+                key: LOG_SERVICE_URL
+          - name: LOG_SERVICE_TOKEN
+            valueFrom:
+              configMapKeyRef:
+                name: classifier-config
+                key: LOG_SERVICE_TOKEN 
