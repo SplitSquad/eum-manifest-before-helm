@@ -12,7 +12,7 @@ data:
   EUREKA_HOST: "discussion-room.eum-ai.svc.cluster.local"
   EUREKA_PORT: "8000"
   LIGHTWEIGHT_LLM_PROVIDER: "groq"
-  HIGH_PERFORMANCE_LLM_PROVIDER: "ogroq"
+  HIGH_PERFORMANCE_LLM_PROVIDER: "groq"
   LIGHTWEIGHT_OLLAMA_URL: "http://ollama-service:11434"
   LIGHTWEIGHT_OLLAMA_MODEL: "gemma3:1b"
   LIGHTWEIGHT_OLLAMA_TIMEOUT: "20"
