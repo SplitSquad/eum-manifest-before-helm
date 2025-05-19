@@ -8,7 +8,7 @@ data:
   PORT: "8000"
   EUREKA_URL: "http://discovery.eum-backend.svc.cluster.local:8761/eureka"
   eureka-ip: http://discovery.eum-backend.svc.cluster.local:8761/eureka
-  eureka-instance-host: "discussion-room.eum-ai.svc.cluster.local"
+  eureka-instance-host: "localhost"
   eureka-app-name: "EUM-DISCUSSION-ROOM"
   eureka-instance-port: "8000"
   LIGHTWEIGHT_LLM_PROVIDER: "ollama"
