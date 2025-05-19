@@ -8,9 +8,10 @@ data:
   PORT: "8000"
   EUREKA_URL: "http://discovery.eum-backend.svc.cluster.local:8761/eureka"
   eureka-ip: http://discovery.eum-backend.svc.cluster.local:8761/eureka
-  eureka-instance-host: "localhost"
+  eureka-instance-host: "discussion-room.eum-ai.svc.cluster.local"
   eureka-app-name: "EUM-DISCUSSION-ROOM"
   eureka-instance-port: "8000"
+  EUREKA_INSTANCE_PREFER_IP_ADDRESS: "true"
   LIGHTWEIGHT_LLM_PROVIDER: "ollama"
   HIGH_PERFORMANCE_LLM_PROVIDER: "ollama"
   GROQ_LIGHTWEIGHT_MODEL: "gemma2-9b-it"
