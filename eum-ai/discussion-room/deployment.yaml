@@ -49,7 +49,14 @@ spec:
                 name: discussion-room-config
                 key: EUREKA_IP
           - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
-            value: "true"
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: EUREKA_INSTANCE_PREFER_IP_ADDRESS
+          - name: EUREKA_INSTANCE_HOSTNAME
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
           - name: SPRING_APPLICATION_NAME
             value: "discussion-room"
           - name: EUREKA_APP_NAME
@@ -182,3 +189,7 @@ spec:
               secretKeyRef:
                 name: discussion-room-secret
                 key: S3_SECRET_KEY
+          - name: POD_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
