@@ -6,7 +6,7 @@ metadata:
 data:
   APP_NAME: "EUM-CLASSIFIER"
   EUREKA_URL: "http://discovery.eum-backend.svc.cluster.local:8761/eureka"
-  EUREKA_IP: http://localhost:8761/eureka
+  EUREKA_IP: http://discovery.eum-backend.svc.cluster.local:8761/eureka
   EUREKA_APP_NAME: "eum-classifier"
   EUREKA_HOST: "localhost"
   EUREKA_PORT: "8003"
