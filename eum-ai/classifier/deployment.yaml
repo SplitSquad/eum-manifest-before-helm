@@ -52,7 +52,7 @@ spec:
               fieldRef:
                 fieldPath: status.podIP
           - name: SPRING_APPLICATION_NAME
-            value: "eum-classifier"
+            value: "classifier"
           - name: EUREKA_APP_NAME
             valueFrom:
               configMapKeyRef:
