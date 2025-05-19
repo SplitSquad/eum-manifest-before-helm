@@ -64,6 +64,6 @@ spec:
                 key: LOG_SERVICE_URL
           - name: LOG_SERVICE_TOKEN
             valueFrom:
-              configMapKeyRef:
-                name: classifier-config
+              secretKeyRef:
+                name: classifier-secret
                 key: LOG_SERVICE_TOKEN 
