@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: api-gateway-container
-          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-api-gateway:1cea31b29045c745c864a2fe2794eca1397fba13
+          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-api-gateway:1d19c523f2af433a074cf632a740fe4220e7a193
           ports:
             - containerPort: 8080
           env:
