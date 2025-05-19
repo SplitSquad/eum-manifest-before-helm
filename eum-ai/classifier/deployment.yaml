@@ -26,7 +26,7 @@ spec:
             cpu: "250m"
           limits:
             memory: "5Gi"
-              cpu: "1000m"
+            cpu: "1000m"
         env:
           - name: EUREKA_URL
             valueFrom:
@@ -37,26 +37,26 @@ spec:
             valueFrom:
               configMapKeyRef:
                 name: classifier-config
-                key: eureka-ip
-          - name: EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE
-            valueFrom:
-              configMapKeyRef:
-                name: classifier-config
-                key: eureka-ip
+                key: EUREKA_IP
           - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
             value: "true"
           - name: SPRING_APPLICATION_NAME
             value: "eum-classifier"
-          - name: EUREKA_INSTANCE_HOST
-            valueFrom:
-              configMapKeyRef:
-                name: classifier-config
-                key: eureka-instance-host
           - name: EUREKA_APP_NAME
             valueFrom:
               configMapKeyRef:
                 name: classifier-config
-                key: eureka-app-name
+                key: EUREKA_APP_NAME
+          - name: EUREKA_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: classifier-config
+                key: EUREKA_HOST
+          - name: EUREKA_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: classifier-config
+                key: EUREKA_PORT
           - name: LOG_SERVICE_URL
             valueFrom:
               configMapKeyRef:
