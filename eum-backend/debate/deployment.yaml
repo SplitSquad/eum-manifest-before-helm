@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: debate-container
-          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-debate:48119ad109db71aa20146e6c173c5d4aa5492e93
+          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-debate:2bc272dcf3abba4b6a9414255d42ea4578e0f7d5
           ports:
             - containerPort: 8083
           env:
@@ -66,6 +66,11 @@ spec:
                 configMapKeyRef:
                   name: debate-config
                   key: eureka-ip
+            - name: AI_IP
+              valueFrom:
+                configMapKeyRef:
+                  name: debate-config
+                  key: ai-ip
             - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
               value: "true"
             - name: SPRING_APPLICATION_NAME
