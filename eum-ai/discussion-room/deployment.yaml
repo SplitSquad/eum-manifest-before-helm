@@ -54,7 +54,10 @@ spec:
                 name: discussion-room-config
                 key: eureka-ip
           - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
-            value: "true"
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: EUREKA_INSTANCE_PREFER_IP_ADDRESS
           - name: SPRING_APPLICATION_NAME
             value: "EUM-DISCUSSION-ROOM"
           - name: EUREKA_INSTANCE_HOST
@@ -197,3 +200,38 @@ spec:
               secretKeyRef:
                 name: discussion-room-secret
                 key: S3_SECRET_KEY
+          - name: EUREKA_CLIENT_REGISTER_WITH_EUREKA
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: EUREKA_CLIENT_REGISTER_WITH_EUREKA
+          - name: EUREKA_CLIENT_FETCH_REGISTRY
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: EUREKA_CLIENT_FETCH_REGISTRY
+          - name: EUREKA_INSTANCE_LEASE_RENEWAL_INTERVAL_IN_SECONDS
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: EUREKA_INSTANCE_LEASE_RENEWAL_INTERVAL_IN_SECONDS
+          - name: EUREKA_INSTANCE_LEASE_EXPIRATION_DURATION_IN_SECONDS
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: EUREKA_INSTANCE_LEASE_EXPIRATION_DURATION_IN_SECONDS
+          - name: EUREKA_CLIENT_HEARTBEAT_INTERVAL_IN_SECONDS
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: EUREKA_CLIENT_HEARTBEAT_INTERVAL_IN_SECONDS
+          - name: EUREKA_INSTANCE_NON_SECURE_PORT_ENABLED
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: EUREKA_INSTANCE_NON_SECURE_PORT_ENABLED
+          - name: EUREKA_INSTANCE_SECURE_PORT_ENABLED
+            valueFrom:
+              configMapKeyRef:
+                name: discussion-room-config
+                key: EUREKA_INSTANCE_SECURE_PORT_ENABLED
