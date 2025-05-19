@@ -9,7 +9,7 @@ spec:
   selector:
     app: classifier
   ports:
-  - port: 8003
-    targetPort: 8003
+  - port: 8000
+    targetPort: 8000
     protocol: TCP
   type: ClusterIP 
