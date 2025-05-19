@@ -10,4 +10,4 @@ data:
   EUREKA_APP_NAME: "eum-classifier"
   EUREKA_HOST: "classifier.eum-ai.svc.cluster.local"
   EUREKA_PORT: "8000"
-  LOG_SERVICE_URL: "https://api.eum-friends.com"
+  LOG_SERVICE_URL: "http://api.eum-friends.com"
