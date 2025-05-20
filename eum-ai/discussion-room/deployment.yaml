@@ -22,8 +22,8 @@ spec:
         - containerPort: 8000
         resources:
           requests:
-            memory: "256Mi"
-            cpu: "100m"
+            memory: "512Mi"
+            cpu: "250m"
           limits:
             memory: "512Mi"
             cpu: "500m"
@@ -33,11 +33,6 @@ spec:
               configMapKeyRef:
                 name: discussion-room-config
                 key: APP_NAME
-          - name: PORT
-            valueFrom:
-              configMapKeyRef:
-                name: discussion-room-config
-                key: PORT
           - name: EUREKA_URL
             valueFrom:
               configMapKeyRef:
@@ -53,10 +48,6 @@ spec:
               configMapKeyRef:
                 name: discussion-room-config
                 key: EUREKA_INSTANCE_PREFER_IP_ADDRESS
-          - name: EUREKA_INSTANCE_HOSTNAME
-            valueFrom:
-              fieldRef:
-                fieldPath: status.podIP
           - name: SPRING_APPLICATION_NAME
             value: "discussion-room"
           - name: EUREKA_APP_NAME
@@ -189,7 +180,3 @@ spec:
               secretKeyRef:
                 name: discussion-room-secret
                 key: S3_SECRET_KEY
-          - name: POD_IP
-            valueFrom:
-              fieldRef:
-                fieldPath: status.podIP
