@@ -77,3 +77,4 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: classifier-secret
+                key: LOG_SERVICE_TOKEN
