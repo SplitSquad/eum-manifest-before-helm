@@ -91,6 +91,12 @@ spec:
                 configMapKeyRef:
                   name: information-config
                   key: AI_IP
+            - name: SPRING_APPLICATION_NAME
+              value: "INFORMATION"
+            - name: TZ
+              value: "Asia/Seoul"
+            - name: SPRING_JACKSON_TIME-ZONE
+              value: "Asia/Seoul"
           resources:
             requests:
               memory: "256Mi"
