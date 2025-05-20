@@ -32,7 +32,10 @@ spec:
                   name: information-secret
                   key: DB_PASSWORD
             - name: DB_URL
-              value: "jdbc:mysql://eum-back.cbuqoagm4dq9.ap-northeast-2.rds.amazonaws.com:3306/community?serverTimezone=Asia/Seoul&characterEncoding=UTF-8"
+              valueFrom:
+                configMapKeyRef:
+                  name: information-config
+                  key: DB_URL
             - name: KAFKA_URL
               valueFrom:
                 configMapKeyRef:
