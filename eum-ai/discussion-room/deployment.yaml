@@ -20,12 +20,6 @@ spec:
         image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-debate-room:6dfad9c6e32f33bf9ed39d460fe71d0a6a1a4b62
         ports:
         - containerPort: 8000
-        readinessProbe:
-          httpGet:
-            path: /actuator/health
-            port: 8000
-          initialDelaySeconds: 30
-          periodSeconds: 10
         resources:
           requests:
             memory: "512Mi"
@@ -53,8 +47,9 @@ spec:
             value: "true"
           - name: EUREKA_INSTANCE_HOSTNAME
             valueFrom:
-              fieldRef:
-                fieldPath: status.podIP
+              configMapKeyRef:
+                name: discussion-room-config
+                key: EUREKA_INSTANCE_PREFER_IP_ADDRESS
           - name: SPRING_APPLICATION_NAME
             value: "discussion-room"
           - name: EUREKA_APP_NAME
