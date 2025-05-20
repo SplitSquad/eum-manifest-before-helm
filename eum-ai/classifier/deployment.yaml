@@ -19,7 +19,7 @@ spec:
       - name: classifier
         image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-classifier:5dbc5e2fcfd0ed7646a0472fa654f28abf684c0e
         ports:
-        - containerPort: 8003
+        - containerPort: 8000
         resources:
           requests:
             memory: "512Mi"
@@ -28,6 +28,10 @@ spec:
             memory: "5Gi"
             cpu: "1000m"
         env:
+          - name: POD_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
           - name: EUREKA_URL
             valueFrom:
               configMapKeyRef:
@@ -39,9 +43,16 @@ spec:
                 name: classifier-config
                 key: EUREKA_IP
           - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
-            value: "true"
+            valueFrom:
+              configMapKeyRef:
+                name: classifier-config
+                key: EUREKA_INSTANCE_PREFER_IP_ADDRESS
+          - name: EUREKA_INSTANCE_HOSTNAME
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
           - name: SPRING_APPLICATION_NAME
-            value: "eum-classifier"
+            value: "classifier"
           - name: EUREKA_APP_NAME
             valueFrom:
               configMapKeyRef:
