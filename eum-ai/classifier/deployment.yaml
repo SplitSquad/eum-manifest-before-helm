@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: classifier
-        image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-classifier:2f9289810e575f04839d43602997c1720c249ce9
+        image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-classifier:6f6d6a1563af2b2995655a53f15dc76b6408a634
         ports:
         - containerPort: 8000
         resources:
