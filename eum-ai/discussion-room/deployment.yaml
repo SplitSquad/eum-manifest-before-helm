@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: discussion-room
-        image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-debate-room:8d9540c1be4ea35e067b2bc44c1cdd9c648cf6e0
+        image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-debate-room:7c0820b033b01b76deeb6628054418710a6453f9
         ports:
         - containerPort: 8000
         resources:
