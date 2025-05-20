@@ -28,10 +28,6 @@ spec:
             memory: "5Gi"
             cpu: "1000m"
         env:
-          - name: POD_IP
-            valueFrom:
-              fieldRef:
-                fieldPath: status.podIP
           - name: EUREKA_URL
             valueFrom:
               configMapKeyRef:
@@ -77,4 +73,9 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: classifier-secret
-                key: LOG_SERVICE_TOKEN 
+                key: LOG_SERVICE_TOKEN
+          - name: S3_SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                name: classifier-secret
+                key: S3_SECRET_KEY 
