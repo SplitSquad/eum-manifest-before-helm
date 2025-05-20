@@ -7,10 +7,10 @@ metadata:
     app: information
 data:
   EUREKA_IP: http://discovery.eum-backend.svc.cluster.local:8761/eureka
-  AI_IP: "https://api.eum-friends.com"
+  AI_IP: https://api.eum-friends.com
   S3_REGION: "ap-northeast-2"
   S3_BUCKET_NAME: "eum-msa-bucket"
-  KAFKA_URL: "localhost:9092"
+  KAFKA_URL: kafka.eum-infra.svc.cluster.local:9092
   JWT_ACCESS_EXPIRATION: "36000000"
   JWT_REFRESH_EXPIRATION: "36000000"
   db-url: jdbc:mysql://eum-db.eum-infra.svc.cluster.local:3306/information?useSSL=false&allowPublicKeyRetrieval=true 
