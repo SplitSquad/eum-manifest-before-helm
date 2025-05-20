@@ -16,76 +16,78 @@ spec:
         app: information
     spec:
       containers:
-        - name: information-container
+        - name: information
           image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-information:latest
           ports:
-            - containerPort: 8083
+            - containerPort: 8000
           env:
-            - name: DB_URL
-              valueFrom:
-                configMapKeyRef:
-                  name: information-config
-                  key: db-url
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
                   name: information-secret
-                  key: db-username
+                  key: DB_USER
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: information-secret
-                  key: db-password
+                  key: DB_PASSWORD
+            - name: DB_URL
+              value: "jdbc:mysql://eum-back.cbuqoagm4dq9.ap-northeast-2.rds.amazonaws.com:3306/community?serverTimezone=Asia/Seoul&characterEncoding=UTF-8"
             - name: KAFKA_URL
               valueFrom:
                 configMapKeyRef:
                   name: information-config
-                  key: kafka-url
+                  key: KAFKA_URL
             - name: TRANSLATION_KEY
               valueFrom:
-                secretKeyRef:
-                  name: information-secret
-                  key: translation-key
+                configMapKeyRef:
+                  name: information-config
+                  key: TRANSLATION_KEY
             - name: JWT_SECRET
               valueFrom:
                 secretKeyRef:
                   name: information-secret
-                  key: jwt-secret
+                  key: JWT_SECRET
             - name: JWT_ACCESS_EXPIRATION
               valueFrom:
                 configMapKeyRef:
                   name: information-config
-                  key: jwt-access-expiration
+                  key: JWT_ACCESS_EXPIRATION
             - name: JWT_REFRESH_EXPIRATION
               valueFrom:
                 configMapKeyRef:
                   name: information-config
-                  key: jwt-refresh-expiration
+                  key: JWT_REFRESH_EXPIRATION
             - name: S3_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
                   name: information-secret
-                  key: s3-access-key
+                  key: S3_ACCESS_KEY
             - name: S3_SECRET_KEY
               valueFrom:
                 secretKeyRef:
                   name: information-secret
-                  key: s3-secret-key
+                  key: S3_SECRET_KEY
             - name: S3_REGION
               valueFrom:
                 configMapKeyRef:
                   name: information-config
-                  key: s3-region
+                  key: S3_REGION
             - name: S3_BUCKET_NAME
               valueFrom:
                 configMapKeyRef:
                   name: information-config
-                  key: s3-bucket-name
+                  key: S3_BUCKET_NAME
             - name: EUREKA_IP
               valueFrom:
                 configMapKeyRef:
                   name: information-config
-                  key: eureka-ip
+                  key: EUREKA_IP
+            - name: AI_IP
+              valueFrom:
+                configMapKeyRef:
+                  name: information-config
+                  key: AI_IP
           resources:
             requests:
               memory: "256Mi"
