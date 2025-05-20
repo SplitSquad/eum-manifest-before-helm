@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: information
-          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-information:d932fb521ec80a8202875061f24ff1e50f5ad2fa
+          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-information:2527777d61f83514143816f9e89c000e0094587e
           ports:
             - containerPort: 8080
           env:
