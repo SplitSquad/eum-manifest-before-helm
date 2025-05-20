@@ -12,8 +12,6 @@ data:
   EUREKA_HOST: "discussion-room.eum-ai.svc.cluster.local"
   EUREKA_PORT: "8000"
   EUREKA_INSTANCE_PREFER_IP_ADDRESS: "true"
-  EUREKA_INSTANCE_IP_ADDRESS: "${POD_IP}"
-  EUREKA_INSTANCE_HOSTNAME: "${POD_IP}"
   LIGHTWEIGHT_LLM_PROVIDER: "groq"
   HIGH_PERFORMANCE_LLM_PROVIDER: "groq"
   LIGHTWEIGHT_OLLAMA_URL: "http://ollama-service:11434"
@@ -31,3 +29,6 @@ data:
   S3_REGION: "ap-northeast-2"
   S3_BUCKET_NAME: "eum-msa-bucket"
   PYTHONPATH: "${PYTHONPATH}:."
+
+
+# discussion-room , information 되는 버전
