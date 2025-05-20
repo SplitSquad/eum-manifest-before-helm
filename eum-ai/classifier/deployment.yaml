@@ -29,7 +29,7 @@ spec:
             cpu: "1000m"
         env:
         - name: POD_IP
-            valueFrom:
+          valueFrom:
               fieldRef:
                 fieldPath: status.podIP
           - name: EUREKA_URL
