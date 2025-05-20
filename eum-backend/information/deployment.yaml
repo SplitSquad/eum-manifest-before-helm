@@ -19,7 +19,7 @@ spec:
         - name: information
           image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-information:d932fb521ec80a8202875061f24ff1e50f5ad2fa
           ports:
-            - containerPort: 8000
+            - containerPort: 8080
           env:
             - name: DB_USER
               valueFrom:
@@ -91,6 +91,12 @@ spec:
                 configMapKeyRef:
                   name: information-config
                   key: AI_IP
+            - name: SPRING_APPLICATION_NAME
+              value: "INFORMATION"
+            - name: TZ
+              value: "Asia/Seoul"
+            - name: SPRING_JACKSON_TIME-ZONE
+              value: "Asia/Seoul"
           resources:
             requests:
               memory: "256Mi"

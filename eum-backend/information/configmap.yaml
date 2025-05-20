@@ -3,8 +3,6 @@ kind: ConfigMap
 metadata:
   name: information-config
   namespace: eum-backend
-  labels:
-    app: information
 data:
   EUREKA_IP: http://discovery.eum-backend.svc.cluster.local:8761/eureka
   AI_IP: https://api.eum-friends.com
