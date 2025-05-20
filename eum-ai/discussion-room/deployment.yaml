@@ -44,6 +44,8 @@ spec:
                 name: discussion-room-config
                 key: EUREKA_IP
           - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
+            value: "true"
+          - name: EUREKA_INSTANCE_HOSTNAME
             valueFrom:
               configMapKeyRef:
                 name: discussion-room-config
