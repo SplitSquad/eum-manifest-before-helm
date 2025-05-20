@@ -4,11 +4,11 @@ metadata:
   name: discussion-room-config
   namespace: eum-ai
 data:
-  APP_NAME: "DISCUSSION-ROOM"
+  APP_NAME: "discussion-room"
   PORT: "8000"
   EUREKA_URL: "http://discovery.eum-backend.svc.cluster.local:8761/eureka"
   EUREKA_IP: "http://discovery.eum-backend.svc.cluster.local:8761/eureka"
-  EUREKA_APP_NAME: "DISCUSSION-ROOM"
+  EUREKA_APP_NAME: "discussion-room"
   EUREKA_HOST: "discussion-room.eum-ai.svc.cluster.local"
   EUREKA_PORT: "8000"
   EUREKA_INSTANCE_PREFER_IP_ADDRESS: "true"
