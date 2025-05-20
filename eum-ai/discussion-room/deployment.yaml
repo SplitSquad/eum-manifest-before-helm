@@ -28,11 +28,6 @@ spec:
             memory: "512Mi"
             cpu: "500m"
         env:
-          - name: APP_NAME
-            valueFrom:
-              configMapKeyRef:
-                name: discussion-room-config
-                key: APP_NAME
           - name: EUREKA_URL
             valueFrom:
               configMapKeyRef:
@@ -43,20 +38,8 @@ spec:
               configMapKeyRef:
                 name: discussion-room-config
                 key: EUREKA_IP
-          - name: POD_IP
-            valueFrom:
-              fieldRef:
-                fieldPath: status.podIP
           - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
             value: "true"
-          - name: EUREKA_INSTANCE_HOSTNAME
-            valueFrom:
-              fieldRef:
-                fieldPath: status.podIP
-          - name: EUREKA_INSTANCE_IP_ADDRESS
-            valueFrom:
-              fieldRef:
-                fieldPath: status.podIP
           - name: SPRING_APPLICATION_NAME
             value: "discussion-room"
           - name: EUREKA_APP_NAME
