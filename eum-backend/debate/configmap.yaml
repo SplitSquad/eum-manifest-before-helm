@@ -9,4 +9,4 @@ data:
   jwt-access-expiration: "36000000"
   jwt-refresh-expiration: "36000000"
   eureka-ip: http://discovery.eum-backend.svc.cluster.local:8761/eureka
-  ai-ip: https://api.eum-friends.com 
+  ai-ip: https://api.eum-friends.com
