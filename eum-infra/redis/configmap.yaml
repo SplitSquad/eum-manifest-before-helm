@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redis-config
+  namespace: eum-infra
+data:
+  redis.conf: |
+    appendonly yes
+    notify-keyspace-events Ex 

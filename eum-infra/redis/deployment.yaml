@@ -41,10 +41,15 @@ spec:
         volumeMounts:
         - name: redis-data
           mountPath: /data
+        - name: redis-config
+          mountPath: /usr/local/etc/redis/redis.conf
+          subPath: redis.conf
         command:
         - redis-server
-        - --appendonly
-        - "yes"
+        - /usr/local/etc/redis/redis.conf
       volumes:
       - name: redis-data
-        emptyDir: {} 
+        emptyDir: {}
+      - name: redis-config
+        configMap:
+          name: redis-config 
