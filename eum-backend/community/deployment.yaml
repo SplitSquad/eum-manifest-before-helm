@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: community-container
-          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-community:08e7e5d8e9eb8b7dfa9a96ee2b1aee9e25e321e2
+          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-community:d9c6d209e9bc8e787c6502ef2c5644e686ec7663
           ports:
             - containerPort: 8082
           env:
