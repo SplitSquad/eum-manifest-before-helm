@@ -5,6 +5,6 @@ namespace: eum-ai
 
 resources:
   - configmap.yaml
-  - secret.yaml
+  - sealed-secret.yaml
   - deployment.yaml
   - service.yaml 

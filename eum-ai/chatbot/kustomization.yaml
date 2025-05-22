@@ -4,5 +4,5 @@ resources:
   - deployment.yaml
   - service.yaml
   - configmap.yaml
-  - secret.yaml
+  - sealed-secret.yaml
   - pvc.yaml
