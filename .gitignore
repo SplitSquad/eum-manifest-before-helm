@@ -1,5 +1,13 @@
-# Secret files
+# Secret files : eum-ai
 eum-ai/agentic/secret.yaml
 eum-ai/chatbot/secret.yaml
 eum-ai/classifier/secret.yaml
 eum-ai/discussion-room/secret.yaml
+
+# Secret files : eum-backend
+eum-backend/api-gateway/secret.yaml
+eum-backend/information/secret.yaml
+eum-backend/user/secret.yaml
+eum-backend/debate/secret.yaml
+eum-backend/community/secret.yaml
+eum-backend/alarm/secret.yaml
