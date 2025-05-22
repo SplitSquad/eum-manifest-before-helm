@@ -1,4 +1,5 @@
-eum-ai\agentic\secret.yaml
-eum-ai\chatbot\secret.yaml
-eum-ai\classifier\secret.yaml
-eum-ai\discussion-room\secret.yaml
+# Secret files
+eum-ai/agentic/secret.yaml
+eum-ai/chatbot/secret.yaml
+eum-ai/classifier/secret.yaml
+eum-ai/discussion-room/secret.yaml
