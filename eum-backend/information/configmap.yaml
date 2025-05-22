@@ -5,6 +5,8 @@ metadata:
   namespace: eum-backend
 data:
   EUREKA_IP: http://discovery.eum-backend.svc.cluster.local:8761/eureka
+  EUREKA_INSTANCE_HOSTNAME: information.eum-backend.svc.cluster.local
+  EUREKA_INSTANCE_IP_ADDRESS: "true"
   AI_IP: https://api.eum-friends.com
   S3_REGION: "ap-northeast-2"
   S3_BUCKET_NAME: "eum-msa-bucket"

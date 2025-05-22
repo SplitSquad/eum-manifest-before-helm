@@ -97,24 +97,16 @@ spec:
               value: "Asia/Seoul"
             - name: SPRING_JACKSON_TIME-ZONE
               value: "Asia/Seoul"
-            - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
-              value: "true"
-            - name: EUREKA_INSTANCE_HOSTNAME
-              value: "information.eum-backend.svc.cluster.local"
             - name: EUREKA_INSTANCE_IP_ADDRESS
               valueFrom:
-                fieldRef:
-                  fieldPath: status.podIP
-            - name: EUREKA_CLIENT_REGISTER_WITH_EUREKA
-              value: "true"
-            - name: EUREKA_CLIENT_FETCH_REGISTRY
-              value: "true"
-            - name: EUREKA_INSTANCE_LEASE_RENEWAL_INTERVAL_IN_SECONDS
-              value: "30"
-            - name: EUREKA_INSTANCE_LEASE_EXPIRATION_DURATION_IN_SECONDS
-              value: "90"
-            - name: EUREKA_CLIENT_HEARTBEAT_INTERVAL_IN_SECONDS
-              value: "30"
+                configMapKeyRef:
+                  name: information-config
+                  key: EUREKA_INSTANCE_IP_ADDRESS
+            - name: EUREKA_INSTANCE_HOSTNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: information-config
+                  key: EUREKA_INSTANCE_HOSTNAME
           resources:
             requests:
               memory: "256Mi"
