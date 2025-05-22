@@ -11,3 +11,4 @@ eum-backend/user/secret.yaml
 eum-backend/debate/secret.yaml
 eum-backend/community/secret.yaml
 eum-backend/alarm/secret.yaml
+eum-backend/log/secret.yaml
