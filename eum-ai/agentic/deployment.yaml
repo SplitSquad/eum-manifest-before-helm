@@ -21,6 +21,26 @@ spec:
           ports:
             - containerPort: 8000
           env:
+            - name: EUREKA_APP_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: EUREKA_APP_NAME
+            - name: EUREKA_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: EUREKA_PORT
+            - name: EUREKA_IP
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: EUREKA_IP
+            - name: EUREKA_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: EUREKA_HOST
             - name: LIGHTWEIGHT_LLM_PROVIDER
               valueFrom:
                 configMapKeyRef:
