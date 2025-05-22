@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: agentic-config
+  namespace: eum-ai
+  labels:
+    app: agentic
+data:
+  EUREKA_APP_NAME: "eum-agentic"
+  EUREKA_PORT: "8000"
+  EUREKA_IP: "http://discovery.eum-backend.svc.cluster.local:8761/eureka"
+  EUREKA_HOST: "agentic.eum-ai.svc.cluster.local"
+  LIGHTWEIGHT_LLM_PROVIDER: "openai"
+  HIGH_PERFORMANCE_LLM_PROVIDER: "openai"
+  LIGHTWEIGHT_OLLAMA_URL: "http://localhost:11434"
+  LIGHTWEIGHT_OLLAMA_MODEL: "gemma3:1b"
+  LIGHTWEIGHT_OLLAMA_TIMEOUT: "20"
+  HIGH_PERFORMANCE_OLLAMA_URL: "http://localhost:11434"
+  HIGH_PERFORMANCE_OLLAMA_MODEL: "gemma3:4b"
+  HIGH_PERFORMANCE_OLLAMA_TIMEOUT: "60"
+  LIGHTWEIGHT_OPENAI_MODEL: "gpt-3.5-turbo"
+  LIGHTWEIGHT_OPENAI_TIMEOUT: "30"
+  HIGH_PERFORMANCE_OPENAI_MODEL: "gpt-4-turbo"
+  HIGH_PERFORMANCE_OPENAI_TIMEOUT: "60"
+  GROQ_LIGHTWEIGHT_MODEL: "gemma2-9b-it"
+  GROQ_HIGHPERFORMANCE_MODEL: "gemma2-9b-it"
+  S3_REGION: "ap-northeast-2"
+  S3_BUCKET_NAME: "eum-msa-bucket"

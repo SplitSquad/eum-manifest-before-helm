@@ -1,0 +1,166 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agentic
+  namespace: eum-ai
+  labels:
+    app: agentic
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: agentic
+  template:
+    metadata:
+      labels:
+        app: agentic
+    spec:
+      containers:
+        - name: agentic
+          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-agentic:latest
+          ports:
+            - containerPort: 8000
+          env:
+            - name: LIGHTWEIGHT_LLM_PROVIDER
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: LIGHTWEIGHT_LLM_PROVIDER
+            - name: HIGH_PERFORMANCE_LLM_PROVIDER
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: HIGH_PERFORMANCE_LLM_PROVIDER
+            - name: LIGHTWEIGHT_OLLAMA_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: LIGHTWEIGHT_OLLAMA_URL
+            - name: LIGHTWEIGHT_OLLAMA_MODEL
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: LIGHTWEIGHT_OLLAMA_MODEL
+            - name: LIGHTWEIGHT_OLLAMA_TIMEOUT
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: LIGHTWEIGHT_OLLAMA_TIMEOUT
+            - name: HIGH_PERFORMANCE_OLLAMA_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: HIGH_PERFORMANCE_OLLAMA_URL
+            - name: HIGH_PERFORMANCE_OLLAMA_MODEL
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: HIGH_PERFORMANCE_OLLAMA_MODEL
+            - name: HIGH_PERFORMANCE_OLLAMA_TIMEOUT
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: HIGH_PERFORMANCE_OLLAMA_TIMEOUT
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: agentic-secret
+                  key: OPENAI_API_KEY
+            - name: LIGHTWEIGHT_OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: agentic-secret
+                  key: LIGHTWEIGHT_OPENAI_API_KEY
+            - name: LIGHTWEIGHT_OPENAI_MODEL
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: LIGHTWEIGHT_OPENAI_MODEL
+            - name: LIGHTWEIGHT_OPENAI_TIMEOUT
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: LIGHTWEIGHT_OPENAI_TIMEOUT
+            - name: HIGH_PERFORMANCE_OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: agentic-secret
+                  key: HIGH_PERFORMANCE_OPENAI_API_KEY
+            - name: HIGH_PERFORMANCE_OPENAI_MODEL
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: HIGH_PERFORMANCE_OPENAI_MODEL
+            - name: HIGH_PERFORMANCE_OPENAI_TIMEOUT
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: HIGH_PERFORMANCE_OPENAI_TIMEOUT
+            - name: GROQ_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: agentic-secret
+                  key: GROQ_API_KEY
+            - name: GROQ_LIGHTWEIGHT_MODEL
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: GROQ_LIGHTWEIGHT_MODEL
+            - name: GROQ_HIGHPERFORMANCE_MODEL
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: GROQ_HIGHPERFORMANCE_MODEL
+            - name: S3_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: agentic-secret
+                  key: S3_ACCESS_KEY
+            - name: S3_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: agentic-secret
+                  key: S3_SECRET_KEY
+            - name: S3_REGION
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: S3_REGION
+            - name: S3_BUCKET_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: S3_BUCKET_NAME
+            - name: GOOGLE_SERACH_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: agentic-secret
+                  key: GOOGLE_SERACH_API_KEY
+            - name: GOOGLE_SEARCH_ENGINE_ID
+              valueFrom:
+                secretKeyRef:
+                  name: agentic-secret
+                  key: GOOGLE_SEARCH_ENGINE_ID
+            - name: GOOGLE_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: agentic-secret
+                  key: GOOGLE_API_KEY
+            - name: SEARCH_ENGINE_ID
+              valueFrom:
+                secretKeyRef:
+                  name: agentic-secret
+                  key: SEARCH_ENGINE_ID
+            - name: SPRING_APPLICATION_NAME
+              value: "AGENTIC"
+            - name: TZ
+              value: "Asia/Seoul"
+            - name: SPRING_JACKSON_TIME-ZONE
+              value: "Asia/Seoul"
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "4Gi"
+              cpu: "1000m"

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: agentic
+  namespace: eum-ai
+  labels:
+    app: agentic
+spec:
+  selector:
+    app: agentic
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+  type: ClusterIP 
