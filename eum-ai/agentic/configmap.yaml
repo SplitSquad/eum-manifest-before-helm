@@ -6,7 +6,7 @@ metadata:
   labels:
     app: agentic
 data:
-  EUREKA_APP_NAME: "eum-agentic"
+  EUREKA_APP_NAME: "agentic"
   EUREKA_PORT: "8000"
   EUREKA_IP: "http://discovery.eum-backend.svc.cluster.local:8761/eureka"
   EUREKA_HOST: "agentic.eum-ai.svc.cluster.local"
