@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: agentic
-          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-agentic:e08314ea17b6bc0100ec12f83b67b253d89a50e6
+          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-agentic:ee7ed5c57c2695be3ef6154328dff872399064f2
           ports:
             - containerPort: 8000
           env:
