@@ -4,16 +4,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ $.Release.Name }}-{{ $service.name }}
+  name: {{ $service.name }}
   namespace: {{ $.Values.global.namespace }}
   labels:
-    app: {{ $.Release.Name }}-{{ $service.name }}
+    app: {{ $service.name }}
     chart: {{ include "eum-ai.chart" $ }}
     release: {{ $.Release.Name }}
     heritage: {{ $.Release.Service }}
 spec:
   selector:
-    app: {{ $.Release.Name }}-{{ $service.name }}
+    app: {{ $service.name }}
   ports:
   - port: {{ $service.port }}
     targetPort: {{ $service.port }}
