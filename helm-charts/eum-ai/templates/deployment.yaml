@@ -1,0 +1,52 @@
+{{- range $serviceName, $service := .Values.services }}
+{{- if $service.enabled }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $service.name }}
+  namespace: {{ $.Values.global.namespace }}
+  labels:
+    app: {{ $service.name }}
+    chart: {{ include "eum-ai.chart" $ }}
+    release: {{ $.Release.Name }}
+    heritage: {{ $.Release.Service }}
+spec:
+  replicas: {{ $service.replicas }}
+  selector:
+    matchLabels:
+      app: {{ $service.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ $service.name }}
+    spec:
+      containers:
+      - name: {{ $service.name }}
+        image: "{{ $.Values.global.imageRegistry }}/{{ $service.image.repository }}:{{ $service.image.tag }}"
+        imagePullPolicy: {{ $service.image.pullPolicy }}
+        ports:
+        - containerPort: {{ $service.port }}
+        resources:
+          {{- toYaml $service.resources | nindent 10 }}
+        env:
+        {{- range $key, $value := $service.env }}
+        - name: {{ $key }}
+          valueFrom:
+            configMapKeyRef:
+              name: {{ $service.name }}-config
+              key: {{ $key }}
+        {{- end }}
+        {{- range $key, $value := $service.secrets }}
+        - name: {{ $key }}
+          valueFrom:
+            secretKeyRef:
+              name: {{ $service.name }}-secret
+              key: {{ $key }}
+        {{- end }}
+        - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
+          value: "true"
+        - name: SPRING_APPLICATION_NAME
+          value: {{ $service.name | quote }}
+{{- end }}
+{{- end }} 
