@@ -4,16 +4,20 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ $service.name }}-config
+  name: {{ $.Release.Name }}-{{ $service.name }}-config
   namespace: {{ $.Values.global.namespace }}
   labels:
-    app: {{ $service.name }}
+    app: {{ $.Release.Name }}-{{ $service.name }}
     chart: {{ include "eum-ai.chart" $ }}
     release: {{ $.Release.Name }}
     heritage: {{ $.Release.Service }}
 data:
   {{- range $key, $value := $service.env }}
+  {{- if eq $key "EUREKA_HOST" }}
+  {{ $key }}: {{ printf "%s-%s.%s.svc.cluster.local" $.Release.Name $service.name $.Values.global.namespace | quote }}
+  {{- else }}
   {{ $key }}: {{ $value | quote }}
+  {{- end }}
   {{- end }}
 {{- end }}
 {{- end }} 

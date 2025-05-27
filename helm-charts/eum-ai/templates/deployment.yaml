@@ -4,10 +4,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ $service.name }}
+  name: {{ $.Release.Name }}-{{ $service.name }}
   namespace: {{ $.Values.global.namespace }}
   labels:
-    app: {{ $service.name }}
+    app: {{ $.Release.Name }}-{{ $service.name }}
     chart: {{ include "eum-ai.chart" $ }}
     release: {{ $.Release.Name }}
     heritage: {{ $.Release.Service }}
@@ -15,14 +15,14 @@ spec:
   replicas: {{ $service.replicas }}
   selector:
     matchLabels:
-      app: {{ $service.name }}
+      app: {{ $.Release.Name }}-{{ $service.name }}
   template:
     metadata:
       labels:
-        app: {{ $service.name }}
+        app: {{ $.Release.Name }}-{{ $service.name }}
     spec:
       containers:
-      - name: {{ $service.name }}
+      - name: {{ $.Release.Name }}-{{ $service.name }}
         image: "{{ $.Values.global.imageRegistry }}/{{ $service.image.repository }}:{{ $service.image.tag }}"
         imagePullPolicy: {{ $service.image.pullPolicy }}
         ports:
@@ -34,14 +34,14 @@ spec:
         - name: {{ $key }}
           valueFrom:
             configMapKeyRef:
-              name: {{ $service.name }}-config
+              name: {{ $.Release.Name }}-{{ $service.name }}-config
               key: {{ $key }}
         {{- end }}
         {{- range $key, $value := $service.sealedSecrets }}
         - name: {{ $key }}
           valueFrom:
             secretKeyRef:
-              name: {{ $service.name }}-secret
+              name: {{ $.Release.Name }}-{{ $service.name }}-secret
               key: {{ $key }}
         {{- end }}
         - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
