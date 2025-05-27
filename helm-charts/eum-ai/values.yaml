@@ -124,15 +124,15 @@ affinity: {}
 
 # Global settings
 global:
-  namespace: eum-ai
+  namespace: eum-ai-helm
   imageRegistry: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com
 
 # Namespace configuration
 namespace:
   create: true
-  name: eum-ai
+  name: eum-ai-helm
   labels:
-    name: eum-ai
+    name: eum-ai-helm
 
 # Services configuration
 services:
@@ -158,7 +158,7 @@ services:
       EUREKA_URL: "http://discovery.eum-backend.svc.cluster.local:8761/eureka"
       EUREKA_IP: "http://discovery.eum-backend.svc.cluster.local:8761/eureka"
       EUREKA_APP_NAME: "discussion-room"
-      EUREKA_HOST: "discussion-room.eum-ai.svc.cluster.local"
+      EUREKA_HOST: "discussion-room.eum-ai-helm.svc.cluster.local"
       EUREKA_PORT: "8000"
       EUREKA_INSTANCE_PREFER_IP_ADDRESS: "true"
       LIGHTWEIGHT_LLM_PROVIDER: "groq"
