@@ -124,15 +124,15 @@ affinity: {}
 
 # Global settings
 global:
-  namespace: eum-ai
+  namespace: eum-ai-helm
   imageRegistry: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com
 
 # Namespace configuration
 namespace:
-  create: true
-  name: eum-ai
+  create: false
+  name: eum-ai-helm
   labels:
-    name: eum-ai
+    name: eum-ai-helm
 
 # Services configuration
 services:

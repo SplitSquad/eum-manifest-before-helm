@@ -44,9 +44,9 @@ spec:
               name: {{ $service.name }}-secret
               key: {{ $key }}
         {{- end }}
-        - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
-          value: "true"
-        - name: SPRING_APPLICATION_NAME
-          value: {{ $service.name | quote }}
+        # - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
+        #   value: "true"
+        # - name: SPRING_APPLICATION_NAME
+        #   value: {{ $service.name | quote }}
 {{- end }}
 {{- end }} 
