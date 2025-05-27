@@ -37,7 +37,7 @@ spec:
               name: {{ $service.name }}-config
               key: {{ $key }}
         {{- end }}
-        {{- range $key, $value := $service.secrets }}
+        {{- range $key, $value := $service.sealedSecrets }}
         - name: {{ $key }}
           valueFrom:
             secretKeyRef:
