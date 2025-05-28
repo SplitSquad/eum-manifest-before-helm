@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: debate-container
-          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-debate:505a88ecc323e1cc8a26067c1774d13b48265945
+          image: 879657431997.dkr.ecr.ap-northeast-2.amazonaws.com/eum-debate:57a8825093cc99ae913e90f9e859fffae8522eb8
           ports:
             - containerPort: 8083
           env:
