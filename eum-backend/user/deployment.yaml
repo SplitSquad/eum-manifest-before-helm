@@ -89,6 +89,26 @@ spec:
               value: "Asia/Seoul"
             - name: SPRING_JACKSON_TIME-ZONE
               value: "Asia/Seoul"
+            - name: S3_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: user-secret
+                  key: S3_ACCESS_KEY
+            - name: S3_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: user-secret
+                  key: S3_SECRET_KEY
+            - name: S3_REGION
+              valueFrom:
+                configMapKeyRef:
+                  name: user-config
+                  key: S3_REGION
+            - name: S3_BUCKET_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: user-config
+                  key: S3_BUCKET_NAME
           resources:
             requests:
               memory: "256Mi"

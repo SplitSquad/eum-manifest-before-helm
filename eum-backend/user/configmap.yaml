@@ -13,3 +13,5 @@ data:
   # google-uri: https://eum-friends.com/auth/callback      # 배포 시 사용
   google-uri: http://localhost:3000/auth/callback        # 로컬 테스트 시 사용
   redis-url: redis.eum-infra.svc.cluster.local 
+  S3_REGION: ap-northeast-2
+  S3_BUCKET_NAME: eum-msa-bucket
