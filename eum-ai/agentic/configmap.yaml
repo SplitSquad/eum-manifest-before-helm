@@ -26,3 +26,6 @@ data:
   GROQ_HIGHPERFORMANCE_MODEL: "gemma2-9b-it"
   S3_REGION: "ap-northeast-2"
   S3_BUCKET_NAME: "eum-msa-bucket"
+  PYTHONPATH: "${PYTHONPATH}:."
+  GOOGLE_SEARCH_EVENT_ENGINE_ID: "91a7dcb3000bf4eec"
+  GOOGLE_SEARCH_WEATHER_ENGINE_ID: "f3e537fbdea674aad"

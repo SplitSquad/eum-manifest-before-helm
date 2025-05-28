@@ -167,6 +167,31 @@ spec:
               value: "Asia/Seoul"
             - name: SPRING_JACKSON_TIME-ZONE
               value: "Asia/Seoul"
+            - name: PYTHONPATH
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: PYTHONPATH
+            - name: GOOGLE_SEARCH_EVENT_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: agentic-secret
+                  key: GOOGLE_SEARCH_EVENT_API_KEY
+            - name: GOOGLE_SEARCH_EVENT_ENGINE_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: GOOGLE_SEARCH_EVENT_ENGINE_ID
+            - name: GOOGLE_SEARCH_WEATHER_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: agentic-secret
+                  key: GOOGLE_SEARCH_WEATHER_API_KEY
+            - name: GOOGLE_SEARCH_WEATHER_ENGINE_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: agentic-config
+                  key: GOOGLE_SEARCH_WEATHER_ENGINE_ID
           resources:
             requests:
               memory: "512Mi"
