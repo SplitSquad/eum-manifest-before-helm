@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: {{ $service.name }}
-        image: "{{ $service.image.repository }}:{{ $service.image.tag }}"
+        image: {{ $service.image.repository }}:{{ $service.image.tag }}
         ports:
         - containerPort: {{ $service.port }}
         resources:
