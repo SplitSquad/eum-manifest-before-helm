@@ -23,20 +23,22 @@ spec:
     spec:
       containers:
       - name: {{ $service.name }}
-        image: "{{ $.Values.global.imageRegistry }}/{{ $service.image.repository }}:{{ $service.image.tag }}"
-        imagePullPolicy: {{ $service.image.pullPolicy }}
+        image: "{{ $service.image.repository }}:{{ $service.image.tag }}"
         ports:
         - containerPort: {{ $service.port }}
         resources:
-          {{- toYaml $service.resources | nindent 10 }}
+          {{- toYaml $service.resources | indent 10 }}
         env:
-        {{- range $key, $value := $service.env }}
+        {{- if $service.config }}
+        {{- range $key, $value := $service.config }}
         - name: {{ $key }}
           valueFrom:
             configMapKeyRef:
               name: {{ $service.name }}-config
               key: {{ $key }}
         {{- end }}
+        {{- end }}
+        {{- if $service.secrets }}
         {{- range $key, $value := $service.secrets }}
         - name: {{ $key }}
           valueFrom:
@@ -44,9 +46,6 @@ spec:
               name: {{ $service.name }}-secret
               key: {{ $key }}
         {{- end }}
-        # - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
-        #   value: "true"
-        # - name: SPRING_APPLICATION_NAME
-        #   value: {{ $service.name | quote }}
+        {{- end }}
 {{- end }}
 {{- end }} 

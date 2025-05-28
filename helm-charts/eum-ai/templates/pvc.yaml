@@ -1,0 +1,22 @@
+{{- $chatbot := .Values.services.chatbot }}
+{{- if and $chatbot.enabled $chatbot.pvc }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ $chatbot.name }}-pvc
+  namespace: {{ $.Values.global.namespace }}
+  {{- if $chatbot.pvc.annotations }}
+  annotations:
+    {{- range $key, $value := $chatbot.pvc.annotations }}
+    {{ $key }}: {{ $value | quote }}
+    {{- end }}
+  {{- end }}
+spec:
+  accessModes:
+    - {{ $chatbot.pvc.accessMode | default "ReadWriteOnce" }}
+  resources:
+    requests:
+      storage: {{ $chatbot.pvc.storage | default "5Gi" }}
+  storageClassName: {{ $chatbot.pvc.storageClassName | default "gp2" }}
+{{- end }} 

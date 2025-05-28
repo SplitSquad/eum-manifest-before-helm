@@ -15,9 +15,9 @@ spec:
   selector:
     app: {{ $service.name }}
   ports:
-  - port: {{ $service.port }}
-    targetPort: {{ $service.port }}
-    protocol: TCP
-  type: {{ $.Values.service.type }}
+    - port: {{ $service.port }}
+      targetPort: {{ $service.port }}
+      protocol: TCP
+  type: {{ $.Values.service.type | default "ClusterIP" }}
 {{- end }}
 {{- end }} 

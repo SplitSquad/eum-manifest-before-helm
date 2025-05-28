@@ -12,8 +12,10 @@ metadata:
     release: {{ $.Release.Name }}
     heritage: {{ $.Release.Service }}
 data:
-  {{- range $key, $value := $service.env }}
+  {{- if $service.config }}
+  {{- range $key, $value := $service.config }}
   {{ $key }}: {{ $value | quote }}
   {{- end }}
+  {{- end }}
 {{- end }}
-{{- end }} 
+{{- end }}
