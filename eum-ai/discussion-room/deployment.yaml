@@ -39,7 +39,10 @@ spec:
                 name: discussion-room-config
                 key: EUREKA_IP
           - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
-            value: "true"
+            valueFrom:
+              configMapKeyRef:
+                name: classifier-config
+                key: EUREKA_INSTANCE_PREFER_IP_ADDRESS
           - name: SPRING_APPLICATION_NAME
             value: "discussion-room"
           - name: EUREKA_APP_NAME
